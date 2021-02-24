@@ -5,7 +5,7 @@ import { useLocalStorageState } from './reusable-functions'
 const Greeting = ({initialValue = ''}) => {
 
   const [name, setName] = useLocalStorageState('name', initialValue);
-
+  
   function handleChange(event){
     setName(event.target.value);
   }

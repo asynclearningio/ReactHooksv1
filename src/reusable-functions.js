@@ -11,7 +11,7 @@ export const useLocalStorageState = (key, defaultValue = '', {
           if(valueInLocalStorage){
               return deserialize(valueInLocalStorage);
           }
-          return defaultValue
+          return typeof defaultValue === 'function' ? defaultValue() : defaultValue;
       }
     )
   

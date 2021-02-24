@@ -7,8 +7,12 @@ export const presentationScreen = (props) => (
 
 
 
-export const Button = ( props) => {
-    <p></p>
-    <input >
-    <button>Print</button>
+export const Button = (props) => {
+    return (
+        <div>
+            <input />
+            <button>Print</button>
+        </div>
+
+    )
 }
