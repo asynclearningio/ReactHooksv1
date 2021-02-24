@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from 'react';
+import { useLocalStorageState } from './reusable-functions'
+
+const Greeting = ({initialValue = ''}) => {
+
+  const [name, setName] = useLocalStorageState('name', initialValue);
+
+  function handleChange(event){
+    setName(event.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form>
+        <label htmlFor="name">Name: </label>
+        <input onChange={handleChange} id="name" value={name} />
+      </form>
+      {name ? <strong>Hello {name}</strong>: 'Please type your name'}
     </div>
-  );
+  )
 }
 
-export default App;
+export default function App(){
+  return <Greeting />
+}
